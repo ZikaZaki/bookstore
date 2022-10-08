@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab');
+
+/* variables */
+:root {
+  --primary-color: #4386bf;
+  --secondary-color: #121212;
+  --tertiary-color: #fafafa;
+  --quaternary-color: #e8e8e8;
+  --montserrat: 'Montserrat', sans-serif;
+  --roboto-slab: 'Roboto Slab', serif;
+}
+
 .categories-container {
   display: flex;
   flex-direction: column;
@@ -11,14 +24,17 @@
 }
 
 .categories-container button {
+  font-family: var(--roboto-slab);
   font-size: 1rem;
   font-weight: 600;
-  color: wheat;
-  background: #222;
-  width: 20rem;
+  color: #fff;
+  background-color: #0290ff;
+  width: 15rem;
   height: 3rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  border: 2px solid rgb(18, 10, 97);
-  margin: 0;
+  border: none;
+  outline: none;
+  margin: 1rem;
+  cursor: pointer;
 }
