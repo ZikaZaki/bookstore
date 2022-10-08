@@ -1,6 +1,6 @@
-# Math Magicians
+# React Bookstore
 
-> This is project is part of Microverse **React** curriculum called the **Bookstore** application. This application will be developed using the **React** framework. 
+> This is project is part of Microverse **React** curriculum called the **Bookstore** application. This application will be developed using the **React & Redux** framework. 
 
 ## Built With ⚙️
 
@@ -38,7 +38,7 @@ To get a local copy up and running follow these simple example steps.
 - Run the following command:
 
 ```
-$ git clone https://github.com/ZikaZaki/math-magicians.git
+$ git clone https://github.com/ZikaZaki/bookstore.git
 ```
 
 - Once finished you should see a new folder called **Bookstore** folder in your current directory.
