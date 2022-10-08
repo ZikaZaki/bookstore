@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../../redux/books/books';
+// import styles
 import styles from './AddBook.module.css';
 
 const AddBook = () => {
+  const categories = useSelector((state) => state.categories.categories);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-
+  const [category, setCategory] = useState('');
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBook = {
+    dispatch(addBook({
+      id: uuidv4(),
       title,
       author,
-    };
+      category,
+    }));
+    // clear form
     setTitle('');
     setAuthor('');
-    return newBook;
+    setCategory('');
   };
 
   return (
     <div className={styles['form-container']}>
       <h1>Add new book</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           type="text"
           placeholder="Book title"
@@ -32,10 +42,25 @@ const AddBook = () => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
-        <button type="submit">Add book</button>
+        <select name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
+          {categories.map((category) => (
+            <option key={category.id} value={category.name}>
+              {category.name}
+            </option>
+          ))}
+          ;
+        </select>
+        <button type="submit" onClick={handleSubmit}>Add book</button>
       </form>
     </div>
   );
+};
+
+AddBook.prototype = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default AddBook;
