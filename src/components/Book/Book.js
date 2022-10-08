@@ -26,9 +26,9 @@ const Book = ({
         </div>
         <div className={styles['book-actions']}>
           <button className={styles['book-action']} type="button">Comments</button>
-          <span className={styles['line-separate']} />
+          <span className={styles['vertical-line2']} />
           <button className={styles['book-action']} type="button" onClick={handleRemove}>Remove</button>
-          <span className={styles['line-separate']} />
+          <span className={styles['vertical-line2']} />
           <button className={styles['book-action']} type="button">Edit</button>
         </div>
       </div>
@@ -48,9 +48,9 @@ const Book = ({
           </div>
         </div>
       </div>
-      <span className={styles['line-separate']} />
+      <span className={styles['vertical-line1']} />
       <div className={styles['book-chapter']}>
-        <h3 className={styles['book-chapter-title']}>CURRENT CHAPTER</h3>
+        <h3 className={styles['book-current-chapter']}>CURRENT CHAPTER</h3>
         <h3 className={styles['book-chapter-number']}>Chapter 17</h3>
         <button className={styles['book-chapter-update']} type="button">UPDATE PROGRESS</button>
       </div>

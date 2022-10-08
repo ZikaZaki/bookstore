@@ -28,7 +28,7 @@ const AddBook = () => {
 
   return (
     <div className={styles['form-container']}>
-      <h1>Add new book</h1>
+      <h1 className={styles['form-title']}>ADD NEW BOOK</h1>
       <form>
         <input
           type="text"
@@ -50,7 +50,7 @@ const AddBook = () => {
           ))}
           ;
         </select>
-        <button type="submit" onClick={handleSubmit}>Add book</button>
+        <button type="submit" onClick={handleSubmit}>ADD BOOK</button>
       </form>
     </div>
   );
