@@ -1,25 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab');
+
+/* variables */
+:root {
+  --primary-color: #4386bf;
+  --secondary-color: #121212;
+  --tertiary-color: #fafafa;
+  --quaternary-color: #e8e8e8;
+  --montserrat: 'Montserrat', sans-serif;
+  --roboto-slab: 'Roboto Slab', serif;
+}
+
 .book-card {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  text-align: center;
-  border-radius: 1rem;
-  border: 2px solid #222;
+  text-align: justify;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
   width: 100%;
   padding: 1rem;
   margin: 0;
 }
 
-.delete-btn {
-  font-size: 1rem;
-  font-weight: 600;
-  color: wheat;
-  background: #222;
-  width: 10rem;
-  height: 3rem;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  border: 2px solid rgb(18, 10, 97);
-  margin: 0;
+.book-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: justify;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: justify;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.category {
+  font-family: var(--montserrat);
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.title {
+  font-family: var(--roboto-slab);
+  font-size: 1.375rem;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  color: #121212;
+}
+
+.author {
+  font-family: var(--roboto-slab);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #4386bf;
+}
+
+.book-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  text-align: justify;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.book-actions button {
+  font-family: var(--roboto-slab);
+  font-size: 0.875rem;
+  font-weight: 300;
+  text-align: justify;
+  background-color: transparent;
+  color: #4386bf;
+  border: none;
+  outline: none;
+  width: 4.563rem;
+  height: 1.188rem;
+}
+
+.line-separate {
+  width: 0.125rem;
+  height: 1.5rem;
+  border: solid 1px #e8e8e8;
+}
+
+.book-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: justify;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.book-progress-bar {
+  width: 100%;
+  height: 0.25rem;
+  border-radius: 4px;
+  background-color: #e8e8e8;
+}
+
+/* .book-progress-bar-inner {
+  width: 50%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #4386bf;
+} */
+
+.book-progress-percentage {
+  font-family: var(--montserrat);
+  font-size: 2rem;
+  color: #121212;
+  position: relative;
+}
+
+.completed {
+  font-family: var(--montserrat);
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-align: justify;
+  min-height: 100px;
+  min-width: 100px;
+  background-color: transparent;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 8px;
+
+  /* box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25); */
+
+  /* display: grid; */
+  place-items: center;
+}
+
+.circular-progress {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(rgb(48, 123, 190), rgb(55, 156, 246) 234deg, rgb(215, 217, 224) 234deg);
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.circular-progress-percentage {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.book-chapter {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #121212;
+}
+
+.book-chapter-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #121212;
+}
+
+.book-chapter-number {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #121212;
+}
+
+.book-chapter-update {
+  font-family: var(--roboto-slab);
+  font-size: 0.813rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+  background-color: #0290ff;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  width: 11.5rem;
+  height: 2.063rem;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
 }

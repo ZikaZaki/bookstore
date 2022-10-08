@@ -1,14 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab');
+
+/* variables */
+:root {
+  --primary-color: #4386bf;
+  --secondary-color: #121212;
+  --tertiary-color: #fafafa;
+  --quaternary-color: #e8e8e8;
+  --montserrat: 'Montserrat', sans-serif;
+  --roboto-slab: 'Roboto Slab', serif;
+}
+
 .nav-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: #222;
+  background-color: #fff;
   text-align: center;
+  border-bottom: solid 1px #e8e8e8;
   height: 4rem;
   width: 100%;
   padding: 0 2rem;
   margin: 0;
+}
+
+.nav-title {
+  display: flex;
+  font-family: var(--montserrat);
+  font-size: 1.875rem;
+  font-weight: 800;
+  font-weight: bold;
+  color: #0290ff;
+  text-align: justify;
+  min-width: 16rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-list {
@@ -17,7 +44,7 @@
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
   width: 100%;
   padding: 0;
@@ -25,13 +52,24 @@
 }
 
 .nav-item {
-  color: wheat;
+  display: flex;
+  font-family: var(--montserrat);
+  font-size: 0.9rem;
+  letter-spacing: 1.9px;
   text-decoration: none;
+  color: #121212;
+  padding: 0.5rem;
 }
 
 .nav-item a {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: wheat;
+  color: #121212;
+  text-decoration: none;
+}
+
+.nav-item-categories a {
+  font-family: var(--montserrat);
+  font-size: 0.9rem;
+  opacity: 0.5;
+  color: #121212;
   text-decoration: none;
 }

@@ -19,9 +19,11 @@ const Book = ({
   return (
     <div className={styles['book-card']}>
       <div className={styles['book-info']}>
-        <h2 className={styles.category}>{category}</h2>
-        <h2 className={styles.title}>{title}</h2>
-        <h3 className={styles.author}>{author}</h3>
+        <div className={styles['book-details']}>
+          <h2 className={styles.category}>{category}</h2>
+          <h2 className={styles.title}>{title}</h2>
+          <h3 className={styles.author}>{author}</h3>
+        </div>
         <div className={styles['book-actions']}>
           <button className={styles['book-action']} type="button">Comments</button>
           <span className={styles['line-separate']} />
@@ -31,12 +33,19 @@ const Book = ({
         </div>
       </div>
       <div className={styles['book-progress']}>
-        <div className={styles['book-progress-bar']}>
-          <div className={styles['book-progress-bar-inner']} />
-        </div>
-        <div className={styles['book-progress-percentage']}>
-          <span>64%</span>
-          <span>Completed</span>
+        <div className={styles['progress-container']}>
+          <div className={styles['circular-progress']}>
+            <div className={styles['circular-progress-percentage']}>
+              <span>64%</span>
+              <br />
+              <span>Completed</span>
+            </div>
+          </div>
+          <div className={styles['book-progress-percentage']}>
+            <span>64%</span>
+            <br />
+            <span className={styles.completed}>Completed</span>
+          </div>
         </div>
       </div>
       <span className={styles['line-separate']} />
