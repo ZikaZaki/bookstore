@@ -1,89 +1,96 @@
-import { v4 as uuidv4 } from 'uuid';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 // Bookstore API
 const apiKey = 'Fbdc45RKcHa3Ou9VViQW';
 const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
-const getBooksURL = `${baseURL}${apiKey}/books/`;
+const booksURL = `${baseURL}${apiKey}/books/`;
 
 // Actions
-const ADD = 'bookStore/books/ADD';
-const UPDATE = 'bookStore/books/UPDATE';
-const REMOVE = 'bookStore/books/REMOVE';
+const GET_BOOKS = 'bookstore/books/GET_BOOKS';
+const ADD_BOOK = 'bookStore/books/ADD';
+const UPDATE_BOOK = 'bookStore/books/UPDATE';
+const REMOVE_BOOK = 'bookStore/books/REMOVE';
 
-const initialBooks = [
-  {
-    id: uuidv4(), title: 'The Hobbit', author: 'J.R.R. Tolkien', category: 'Fantasy',
+// First, create the thunk for all actions
+export const fetchBooks = createAsyncThunk(
+  GET_BOOKS,
+  async () => {
+    try {
+      const response = await axios.get(booksURL);
+      return response.data;
+    } catch (error) {
+      return error;
+    }
   },
-  {
-    id: uuidv4(), title: 'The Fellowship of the Ring', author: 'J.R.R. Tolkien', category: 'Fantasy',
-  },
-  {
-    id: uuidv4(), title: 'The Return of the King', author: 'J.R.R. Tolkien', category: 'Action',
-  },
-  {
-    id: uuidv4(), title: 'The Two Towers', author: 'J.R.R. Tolkien', category: 'Action',
-  },
-  {
-    id: uuidv4(), title: 'The Silmarillion', author: 'J.R.R. Tolkien', category: 'Sci-Fi',
-  },
-  {
-    id: uuidv4(), title: 'The Two Towers', author: 'J.R.R. Tolkien', category: 'Fantasy',
-  },
-  {
-    id: uuidv4(), title: 'The Apple Cart', author: 'G.B. Shaw', category: 'Drama',
-  },
-  {
-    id: uuidv4(), title: 'The Silmarillion', author: 'J.R.R. Tolkien', category: 'Fantasy',
-  },
-  {
-    id: uuidv4(), title: 'The Magician\'s Nephew', author: 'C.S. Lewis', category: 'Fantasy',
-  },
-  {
-    id: uuidv4(), title: 'The Doctor\'s Dilemma', author: 'G.B. Shaw', category: 'Drama',
-  },
-];
+);
 
-// Reducer
-const initialState = initialBooks;
+export const addBook = createAsyncThunk(
+  ADD_BOOK,
+  async (payload) => {
+    try {
+      return await JSON.stringify(axios.post(booksURL, payload));
+    } catch (error) {
+      return error;
+    }
+  },
+);
 
-const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
-    // do reducer stuff
-    case ADD:
-      return [...state, action.payload];
-    case UPDATE:
-      return state.map((book) => {
-        if (book.id === action.payload.id) {
-          return { ...book, ...action.payload };
-        } return book;
-      });
-    case REMOVE:
-      return state.filter((book) => book.id !== action.payload);
-    default: return state;
-  }
-};
+export const updateBook = createAsyncThunk(
+  UPDATE_BOOK,
+  async (payload) => {
+    try {
+      const response = await axios.put(booksURL, payload);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  },
+);
 
-// Action creators
-const addBook = (payload) => ({
-  type: ADD,
-  payload,
+export const removeBook = createAsyncThunk(
+  REMOVE_BOOK,
+  async (payload) => {
+    try {
+      return await JSON.stringify(axios.delete(booksURL + payload));
+    } catch (error) {
+      return error;
+    }
+  },
+);
+
+// Initial state of the store
+const initialState = [];
+
+// Handling actions in the reducers:
+export const booksSlice = createSlice({
+  name: 'books',
+  initialState,
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        const books = Object.keys(action.payload).map((key) => {
+          const book = action.payload[key][0];
+          return {
+            id: key,
+            ...book,
+          };
+        });
+        return books;
+      })
+      .addCase(addBook.fulfilled, (state, action) => {
+        const book = {
+          id: action.meta.arg.item_id,
+          title: action.meta.arg.title,
+          author: action.meta.arg.author,
+          category: action.meta.arg.category,
+        };
+        return [...state, book];
+      })
+      .addCase(updateBook.fulfilled, (state, action) => [...state, action.payload])
+      .addCase(removeBook.fulfilled, (state, action) => state
+        .filter((book) => book.id !== action.meta.arg));
+  },
 });
 
-const updateBook = (payload) => ({
-  type: UPDATE,
-  payload,
-});
-
-const removeBook = (payload) => ({
-  type: REMOVE,
-  payload,
-});
-
-// Selectors
-const getBooks = (state) => state.books;
-
-export {
-  addBook, updateBook, removeBook, getBooks,
-};
-
-export default booksReducer;
+export default booksSlice.reducer;

@@ -10,12 +10,12 @@ const AddBook = () => {
   const categories = useSelector((state) => state.categories.categories);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Action');
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addBook({
-      id: uuidv4(),
+      item_id: uuidv4(),
       title,
       author,
       category,
@@ -23,7 +23,7 @@ const AddBook = () => {
     // clear form
     setTitle('');
     setAuthor('');
-    setCategory('');
+    setCategory('Action');
   };
 
   return (

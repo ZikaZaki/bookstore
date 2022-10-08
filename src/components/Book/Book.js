@@ -6,8 +6,10 @@ import { removeBook } from '../../redux/books/books';
 import styles from './Book.module.css';
 
 const Book = ({
-  // eslint-disable-next-line react/prop-types
-  id, title, author, category,
+  id,
+  title,
+  author,
+  category,
 }) => {
   const dispatch = useDispatch();
   const handleRemove = () => {
@@ -47,7 +49,7 @@ const Book = ({
   );
 };
 
-Book.prototype = {
+Book.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
