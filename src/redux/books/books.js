@@ -1,5 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 
+// Bookstore API
+const apiKey = 'Fbdc45RKcHa3Ou9VViQW';
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const getBooksURL = `${baseURL}${apiKey}/books/`;
+
 // Actions
 const ADD = 'bookStore/books/ADD';
 const UPDATE = 'bookStore/books/UPDATE';
