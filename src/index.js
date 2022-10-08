@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/client';
 import store from './redux/configureStore';
 import './index.css';
 import App from './App';
-// import BooksContainer from './components/BooksContainer';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
