@@ -73,3 +73,18 @@
   color: #121212;
   text-decoration: none;
 }
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: #fff;
+  color: #0290ff;
+  border-radius: 50%;
+  border: solid 1px #e8e8e8;
+  min-width: 2.813rem;
+  min-height: 2.813rem;
+  cursor: pointer;
+}

@@ -12,6 +12,7 @@ const Navbar = () => (
         <Link to="/categories">Categories</Link>
       </li>
     </ul>
+    <div className={styles.avatar}><ion-icon name="person" /></div>
   </nav>
 );
 
