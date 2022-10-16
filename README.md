@@ -10,11 +10,11 @@
 - **Technologies used**: NPM, Webpack, & Jest Library.
 - **Tools**: Git, Gitflow, GitHub, VS Code, & Chrome Browser.
 
-## Live Demo (Coming Soon) 🚀
+## Live Demo (Deployed on Netlify) 🚀
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/68ea255b-ae38-4005-968b-6fbd0a8d676b/deploy-status)](https://app.netlify.com/#)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/68ea255b-ae38-4005-968b-6fbd0a8d676b/deploy-status)](https://wondrous-churros-d1104c.netlify.app/)
 
-[Live Demo Link](#)
+[Live Demo Link](https://wondrous-churros-d1104c.netlify.app/)
 
 ## Getting Started
 
